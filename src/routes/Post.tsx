@@ -3,6 +3,7 @@ import { fetchPost } from "../utils/posts";
 import { useEffect, useState } from "react";
 import { Post, User } from "../utils/types";
 import PostData from "../components/PostData";
+import Error from "../components/404Error";
 import { fetchUser } from "../utils/users";
 import { CircularProgress } from "@mui/material";
 
@@ -27,10 +28,7 @@ function Post() {
       ) : Object.keys(post).length ? (
         <PostData post={post} user={user} />
       ) : (
-        <>
-          <h1 className="mb-10">ERROR 404</h1>
-          <h2>The post you are looking for does not exist.</h2>
-        </>
+        <Error type="post" />
       )}
     </>
   );

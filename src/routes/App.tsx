@@ -10,6 +10,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { Button, CircularProgress, Pagination } from "@mui/material";
 import { useParams } from "react-router-dom";
 import { fetchUser } from "../utils/users";
+import Error from "../components/404Error";
 
 const POSTS_PER_PAGE = 10;
 
@@ -38,7 +39,7 @@ function App() {
     <>
       <CircularProgress />
     </>
-  ) : (
+  ) : Object.keys(allPosts).length ? (
     <>
       <h1 className="text-3xl font-bold mb-10 text-gray-300">
         {user ? user.name : "All Posts"}
@@ -70,6 +71,8 @@ function App() {
         />
       )}
     </>
+  ) : (
+    <Error type="user" />
   );
 }
 
