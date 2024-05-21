@@ -51,6 +51,7 @@ function App() {
               expandIcon={<ExpandMoreIcon />}
               aria-controls={`content-${index}`}
               id={`header-${index}`}
+              className="font-semibold"
             >
               {post.title}
             </AccordionSummary>
